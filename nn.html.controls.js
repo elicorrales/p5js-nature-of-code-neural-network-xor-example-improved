@@ -11,8 +11,9 @@ if (localStorage) {
     if (numOut) nnNumOutputsElem.value = numOut;
 }
 
-const doCreateNetwork = () => {
-    showMessages('info', 'Training...');
+const doCreateNetwork = (typeMsg, message) => {
+    if (message) showMessages(typeMsg, message);
+    else showMessages('info', 'Training...');
     allTrained = false;
     showedAllTrained = false;
     let numIn = parseInt(nnNumInputsElem.value);

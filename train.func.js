@@ -23,6 +23,7 @@ const doChangeLearningRate = () => {
     if (localStorage) {
         localStorage.setItem('learningRate',learningRate);
     }
+    allTrained = false;
 }
 
 function doTrain() {
@@ -34,6 +35,16 @@ function doTrain() {
                 showMessages('success', 'All Trained');
                 showedAllTrained = true;
             }
+        }
+
+        // depending on how the network was initialized,
+        // it may NOT train, so we just throw it away
+        // and recreate the network.
+        let currentTime = new Date().getTime();
+        let deltaTrainingTime = currentTime - trainingStartTime;
+        if (deltaTrainingTime > 3000 && !allTrained) {
+            doCreateNetwork('danger','Time Ran Out -Retraining...');
+            trainingStartTime = new Date().getTime();
         }
 
         if (network != undefined) {

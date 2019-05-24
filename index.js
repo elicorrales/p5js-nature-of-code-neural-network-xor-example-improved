@@ -2,7 +2,7 @@ let canvas;
 let canvasHeight = 400;
 let newCanvasHeight = false;
 let network;
-
+let trainingStartTime = new Date().getTime();
 
 function setup() {
   let width = canvasParentElem.clientWidth;
