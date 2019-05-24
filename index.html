@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>XOR</title>
+</head>
+
+<body onresize="doResizeCanvas()">
+    <div class="container container-fluid">
+        <div id="messages"></div>
+    </div>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Neural Network Controls
+                </div>
+                <div class="panel-body">
+                    <label for="nnNumInputs">Inputs:</label>
+                    <input id="nnNumInputs" type="text" placeholder="no of inputs" value="2" />
+                    <label for="nnNumHidden">Hidden:</label>
+                    <input id="nnNumHidden" type="text" placeholder="no of hidden" value="8" />
+                    <label for="nnNumOutputs">Outputs:</label>
+                    <input id="nnNumOutputs" type="text" placeholder="no of outputs" value="1" />
+                    <button class="btn btn-info" onclick="doCreateNetwork()">Create Network</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Canvas
+                    <label for="nnNumInputs">Height:</label>
+                    <input id="canvasHeight" type="text" placeholder="height" value="400"
+                        onchange="doChangeCanvasHeight(this)" />
+                </div>
+                <div class="panel-body">
+                    <div id="canvasParent"></div>
+                    Learning Rate:
+                    <input id="learningRateSlider" type="range" min="0.01" max="0.9" step="0.01" value="0.9" onchange="doChangeLearningRate()">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+        <div class="row">
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</body>
+<script src="js.vendor/p5.min.js"></script>
+<script src="js.vendor/p5.dom.min.js"></script>
+<script src="js.vendor/nn.js"></script>
+<script src="js.vendor/matrix.js"></script>
+<script src="messages.js"></script>
+<script src="training.data.js"></script>
+<script src="train.func.js"></script>
+<script src="index.js"></script>
+<script src="nn.html.controls.js"></script>
+<script src="canvas.html.controls.js"></script>
+
+</html>
